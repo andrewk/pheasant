@@ -259,7 +259,7 @@ class Query implements \IteratorAggregate, \Countable
     {
         if(isset($this->_resultset)) {
             return $this->_resultset->count();
-        } else if(isset($this->_limit)) {
+        } else if(isset($this->_limit) || isset($this->_group)) {
             return $this->execute()->count();
         } else {
             $query = clone $this;
